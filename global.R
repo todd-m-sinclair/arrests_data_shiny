@@ -4,6 +4,7 @@ library(tidyverse)
 library(plotly)
 library(ggplot2)
 library(ggtext)
+library(maps)
 # USArrests dataset
 
 my_data <- USArrests
