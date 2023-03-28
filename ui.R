@@ -61,7 +61,7 @@ dashboardPage(
               tabBox(id="t2", width=12,
                      tabPanel("Crime Trends By State", value="trends", h4("tab panel 1 placeholder UI")),
                      tabPanel("Distribution", value="distro", plotlyOutput("histplot")),
-                     tabPanel("Correlation Matrix", h2("tab panel 3 placeholder UI")),
+                     tabPanel("Correlation Matrix", plotlyOutput("cor")),
                      tabPanel("Arrest types and Urban Population", 
                               radioButtons(inputId ="fit" , label = "Select smooth method" , choices = c("loess", "lm"), selected = "lm" , inline = TRUE), 
                               value="relation", plotlyOutput("scatter"))
