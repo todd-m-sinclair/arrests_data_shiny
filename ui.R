@@ -8,7 +8,7 @@ dashboardPage(
                           tags$a(href="https://www.linkedin.com/in/toddsin/", 
                                  icon("linkedin"), "My LinkedIn", target="_blank")),
                   tags$li(class = "dropdown", 
-                          tags$a(href="https://github.com/todd-m-sinclair", 
+                          tags$a(href="https://github.com/todd-m-sinclair/arrests_data_shiny", 
                                  icon("github"), "My GitHub", target="_blank"))
                   ),
   dashboardSidebar(
