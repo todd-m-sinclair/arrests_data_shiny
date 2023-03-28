@@ -45,7 +45,7 @@ function(input, output, session){
     
     p <- my_data %>% ggplot(aes(x=get(input$var3), y=get(input$var4) )) +
       geom_point() +
-      geom_smooth(method = "lm")+
+      geom_smooth(method = get(input$fit)) +
       labs(title = paste("Relationship between", input$var3, "and", input$var4),
            x=input$var3,
            y=input$var4) +
