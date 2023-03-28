@@ -37,6 +37,16 @@ dashboardPage(
                      tabPanel("Structure", icon=icon("address-card"),h2("tab panel 3 placeholder")),
                      tabPanel("Summary Stats", icon=icon("address-card"),h2("tab panel 4 placeholder"))
               )
+      ),
+      #second tab item
+      tabItem(tabName = "viz",
+              #tab box
+              tabBox(id="t2", width=12,
+                     tabPanel("Crime Trends By State", value="trends", h4("tab panel 1 placeholder UI")),
+                     tabPanel("Distribution", value="distro", h2("tab panel 2 placeholder UI")),
+                     tabPanel("Correlation Matrix", h2("tab panel 3 placeholder UI")),
+                     tabPanel("Arrest types and Urban Population", value="relations",h2("tab panel 4 placeholder UI"))
+              )
       )
     )
   )
