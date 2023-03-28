@@ -39,4 +39,16 @@ function(input, output, session){
              yaxis = list(title="Frequency"))
     
   })
+  
+  output$scatter <- renderPlot({
+    # Create scatter plot for relationship using ggplot
+    
+    my_data %>% ggplot(aes(x=get(input$var3), y=get(input$var4) )) +
+      geom_point() +
+      geom_smooth(method = "lm")+
+      labs(title = paste("Relationship between", input$var3, "and", input$var4),
+           x=input$var3,
+           y=input$var4) +
+      theme( plot.title = element_textbox_simple(size=10, halign=0.5))
+  })
 }
