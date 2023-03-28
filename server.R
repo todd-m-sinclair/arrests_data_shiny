@@ -19,7 +19,7 @@ function(input, output, session){
     my_data
   )
   
-  output$histplot <- renderPlotly(
+  output$histplot <- renderPlotly({
     
     # histogram
     p1 <- my_data %>%
@@ -38,5 +38,5 @@ function(input, output, session){
       layout(title="Distribution chart - Histogram and Boxplot", 
              yaxis = list(title="Frequency"))
     
-  )
+  })
 }
