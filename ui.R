@@ -1,7 +1,4 @@
 # UI elements
-library(shiny)
-library(shinydashboard)
-library(shinycssloaders)
 
 dashboardPage(
   dashboardHeader(title = "1973 US Arrests with R & Shiny Dashboard",

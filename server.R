@@ -1,6 +1,4 @@
 # Computation and reactivity
-library(DT)
-library(ggcorrplot)
 
 function(input, output, session){
   
