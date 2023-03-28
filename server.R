@@ -76,4 +76,15 @@ function(input, output, session){
     ggplotly(corr.plot)
     
   })
+  
+  ### Bar Charts - State wise trend
+  output$bar <- renderPlotly({
+    my_data %>% 
+      plot_ly() %>% 
+      add_bars(x=~State, y=~get(input$var2)) %>% 
+      layout(title = paste("Statewise Arrests for", input$var2),
+             xaxis = list(title = "State"),
+             yaxis = list(title = paste(input$var2, "Arrests per 100,000 residents") ))
+  })
+  
 }
