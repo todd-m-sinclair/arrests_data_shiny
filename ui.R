@@ -23,9 +23,12 @@ dashboardPage(
       #first menuitem
       menuItem("Dataset", tabName = "data", icon=icon("database")),
       menuItem("Visualization", tabName = "viz" , icon=icon("chart-line")),
-      selectInput(inputId = "var1" , label= "Select the variable", choices =  c1, selected = "Rape" ),
-      selectInput(inputId = "var3" , label= "Select the variable", choices =  c1, selected = "Rape" ),
-      selectInput(inputId = "var4" , label= "Select the variable", choices =  c1, selected = "Assault" ),
+      
+      conditionalPanel("input.sidebar == 'viz' && input.t2 == 'distro'", selectInput(inputId = "var1" , label ="Select the Variable" , choices = c1)),
+
+      conditionalPanel("input.sidebar == 'viz' && input.t2 == 'relation' ", selectInput(inputId = "var3" , label ="Select the X variable" , choices = c1, selected = "Rape")),
+      conditionalPanel("input.sidebar == 'viz' && input.t2 == 'relation' ", selectInput(inputId = "var4" , label ="Select the Y variable" , choices = c1, selected = "Assault")),
+      
       menuItem("Choropleth Map", tabName ="map" , icon=icon("map"))
     )
   ),
@@ -59,7 +62,9 @@ dashboardPage(
                      tabPanel("Crime Trends By State", value="trends", h4("tab panel 1 placeholder UI")),
                      tabPanel("Distribution", value="distro", plotlyOutput("histplot")),
                      tabPanel("Correlation Matrix", h2("tab panel 3 placeholder UI")),
-                     tabPanel("Arrest types and Urban Population", value="relations", plotlyOutput("scatter"))
+                     tabPanel("Arrest types and Urban Population", 
+                              radioButtons(inputId ="fit" , label = "Select smooth method" , choices = c("loess", "lm"), selected = "lm" , inline = TRUE), 
+                              value="relation", plotlyOutput("scatter"))
               )
       ),
       #third tab item
