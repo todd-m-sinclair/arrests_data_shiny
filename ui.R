@@ -59,7 +59,7 @@ dashboardPage(
       tabItem(tabName = "viz",
               #tab box
               tabBox(id="t2", width=12,
-                     tabPanel("Crime Trends By State", value="trends", h4("tab panel 1 placeholder UI")),
+                     tabPanel("Crime Trends By State", value="trends", plotlyOutput("bar")),
                      tabPanel("Distribution", value="distro", plotlyOutput("histplot")),
                      tabPanel("Correlation Matrix", plotlyOutput("cor")),
                      tabPanel("Arrest types and Urban Population", 
