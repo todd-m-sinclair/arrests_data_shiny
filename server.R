@@ -1,5 +1,6 @@
 # Computation and reactivity
 library(DT)
+library(ggcorrplot)
 
 function(input, output, session){
   #Structure
@@ -52,5 +53,27 @@ function(input, output, session){
       theme( plot.title = element_textbox_simple(size=10, halign=0.5))
     
     ggplotly(p)
+  })
+  
+  output$cor <- renderPlotly({
+    my_df <- my_data %>% 
+      select(-State)
+    
+    # Compute a correlation matrix
+    corr <- round(cor(my_df), 1)
+    
+    # Compute a matrix of correlation p-values
+    p.mat <- cor_pmat(my_df)
+    
+    corr.plot <- ggcorrplot(
+      corr, 
+      hc.order = TRUE, 
+      lab= TRUE,
+      outline.col = "white",
+      p.mat = p.mat
+    )
+    
+    ggplotly(corr.plot)
+    
   })
 }
