@@ -24,13 +24,13 @@ function(input, output, session){
     # histogram
     p1 <- my_data %>%
       plot_ly() %>%
-      add_histogram(~get(input$var1)) %>%
-      layout(xaxis = list(title=input$var1))
+      add_histogram(x=~get(input$var1)) %>%
+      layout(xaxis = list(title=paste(input$var1)))
     
     # box plot
     p2 <- my_data %>%
       plot_ly() %>%
-      add_boxplot(~get(input$var1)) %>%
+      add_boxplot(x=~get(input$var1)) %>%
       layout(yaxis = list(showticklabels=F))
     
     #stack plots
