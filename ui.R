@@ -59,7 +59,7 @@ dashboardPage(
                      tabPanel("Crime Trends By State", value="trends", h4("tab panel 1 placeholder UI")),
                      tabPanel("Distribution", value="distro", plotlyOutput("histplot")),
                      tabPanel("Correlation Matrix", h2("tab panel 3 placeholder UI")),
-                     tabPanel("Arrest types and Urban Population", value="relations", plotOutput("scatter"))
+                     tabPanel("Arrest types and Urban Population", value="relations", plotlyOutput("scatter"))
               )
       ),
       #third tab item
