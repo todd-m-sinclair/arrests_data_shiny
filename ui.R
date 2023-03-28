@@ -1,6 +1,7 @@
 # UI elements
 library(shiny)
 library(shinydashboard)
+library(shinycssloaders)
 
 dashboardPage(
   dashboardHeader(title = "1973 US Arrests with R & Shiny Dashboard",
@@ -63,18 +64,18 @@ dashboardPage(
                               fluidRow(tags$div(align="center", box(tableOutput("top5"), title = textOutput("head1") , collapsible = TRUE, status = "primary",  collapsed = TRUE, solidHeader = TRUE)),
                                        tags$div(align="center", box(tableOutput("low5"), title = textOutput("head2") , collapsible = TRUE, status = "primary",  collapsed = TRUE, solidHeader = TRUE))
                                        
-                              ),  plotlyOutput("bar")),
+                              ),  withSpinner(plotlyOutput("bar"))),
                      tabPanel("Distribution", value="distro", plotlyOutput("histplot")),
                      tabPanel("Correlation Matrix", plotlyOutput("cor")),
                      tabPanel("Arrest types and Urban Population", 
                               radioButtons(inputId ="fit" , label = "Select smooth method" , choices = c("loess", "lm"), selected = "lm" , inline = TRUE), 
-                              value="relation", plotlyOutput("scatter"))
+                              value="relation", withSpinner(plotlyOutput("scatter")))
               )
       ),
       #third tab item
       tabItem(tabName = "map",
               box(selectInput("crimetype","Select Arrest Type", choices = c2, selected="Rape", width = 250),
-                  plotOutput("map_plot"), width = 12)
+                 withSpinner(plotOutput("map_plot")), width = 12)
       )
     )
   )
