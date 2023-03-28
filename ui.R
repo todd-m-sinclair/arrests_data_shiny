@@ -21,10 +21,23 @@ dashboardPage(
       id = "sidebar",
       
       #first menuitem
-      menuItem("Dataset", tabname = "data", icon=icon("database")),
-      menuItem("visualization", tabname = "viz" , icon=icon("charl-line")),
-      menuItem("Choropleth Map", tabname ="map" , icon=icon("map"))
+      menuItem("Dataset", tabName = "data", icon=icon("database")),
+      menuItem("Visualization", tabName = "viz" , icon=icon("chart-line")),
+      menuItem("Choropleth Map", tabName ="map" , icon=icon("map"))
     )
   ),
-  dashboardBody()
+  dashboardBody(
+    tabItems(
+      #first tab item
+      tabItem(tabName = "data",
+              #tab box
+              tabBox(id="t1", width=12,
+                     tabPanel("About", icon=icon("address-card"), h4("tab panel 1 placeholder")),
+                     tabPanel("Data", icon=icon("address-card"), h2("tab panel 2 placeholder")),
+                     tabPanel("Structure", icon=icon("address-card"),h2("tab panel 3 placeholder")),
+                     tabPanel("Summary Stats", icon=icon("address-card"),h2("tab panel 4 placeholder"))
+              )
+      )
+    )
+  )
 )
