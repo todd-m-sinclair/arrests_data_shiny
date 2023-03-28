@@ -47,6 +47,10 @@ dashboardPage(
                      tabPanel("Correlation Matrix", h2("tab panel 3 placeholder UI")),
                      tabPanel("Arrest types and Urban Population", value="relations",h2("tab panel 4 placeholder UI"))
               )
+      ),
+      #third tab item
+      tabItem(tabName = "map",
+              box(h1("placeholder UI"))
       )
     )
   )
