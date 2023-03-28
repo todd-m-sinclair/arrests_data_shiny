@@ -24,6 +24,8 @@ dashboardPage(
       menuItem("Dataset", tabName = "data", icon=icon("database")),
       menuItem("Visualization", tabName = "viz" , icon=icon("chart-line")),
       selectInput(inputId = "var1" , label= "Select the variable", choices =  c1, selected = "Rape" ),
+      selectInput(inputId = "var3" , label= "Select the variable", choices =  c1, selected = "Rape" ),
+      selectInput(inputId = "var4" , label= "Select the variable", choices =  c1, selected = "Assault" ),
       menuItem("Choropleth Map", tabName ="map" , icon=icon("map"))
     )
   ),
