@@ -55,7 +55,7 @@ dashboardPage(
               #tab box
               tabBox(id="t2", width=12,
                      tabPanel("Crime Trends By State", value="trends", h4("tab panel 1 placeholder UI")),
-                     tabPanel("Distribution", value="distro", h2("tab panel 2 placeholder UI")),
+                     tabPanel("Distribution", value="distro", plotlyOutput("histplot")),
                      tabPanel("Correlation Matrix", h2("tab panel 3 placeholder UI")),
                      tabPanel("Arrest types and Urban Population", value="relations",h2("tab panel 4 placeholder UI"))
               )
