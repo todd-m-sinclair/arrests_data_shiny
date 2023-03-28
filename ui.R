@@ -23,6 +23,7 @@ dashboardPage(
       #first menuitem
       menuItem("Dataset", tabName = "data", icon=icon("database")),
       menuItem("Visualization", tabName = "viz" , icon=icon("chart-line")),
+      selectInput(inputId = "var1" , label= "Select the variable", choices =  c1, selected = "Rape" ),
       menuItem("Choropleth Map", tabName ="map" , icon=icon("map"))
     )
   ),
@@ -34,7 +35,7 @@ dashboardPage(
               tabBox(id="t1", width=12,
                      tabPanel("About", icon=icon("address-card"), 
                               fluidRow(
-                                column(width = 8, tags$img(src="www/media/crime.jpg", width =600 , height = 300),
+                                column(width = 8, tags$img(src="crime.jpg", width =600 , height = 300),
                                        tags$br() , 
                                        tags$a("Photo by Campbell Jensen on Unsplash"), align = "center"),
                                 column(width = 4, tags$br() ,
