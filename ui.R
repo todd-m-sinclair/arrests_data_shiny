@@ -59,7 +59,11 @@ dashboardPage(
       tabItem(tabName = "viz",
               #tab box
               tabBox(id="t2", width=12,
-                     tabPanel("Crime Trends By State", value="trends", plotlyOutput("bar")),
+                     tabPanel("Crime Trends By State", value="trends", 
+                              fluidRow(tags$div(align="center", box(tableOutput("top5"), title = textOutput("head1") , collapsible = TRUE, status = "primary",  collapsed = TRUE, solidHeader = TRUE)),
+                                       tags$div(align="center", box(tableOutput("low5"), title = textOutput("head2") , collapsible = TRUE, status = "primary",  collapsed = TRUE, solidHeader = TRUE))
+                                       
+                              ),  plotlyOutput("bar")),
                      tabPanel("Distribution", value="distro", plotlyOutput("histplot")),
                      tabPanel("Correlation Matrix", plotlyOutput("cor")),
                      tabPanel("Arrest types and Urban Population", 
@@ -69,7 +73,8 @@ dashboardPage(
       ),
       #third tab item
       tabItem(tabName = "map",
-              box(h1("placeholder UI"))
+              box(selectInput("crimetype","Select Arrest Type", choices = c2, selected="Rape", width = 250),
+                  plotOutput("map_plot"), width = 12)
       )
     )
   )
