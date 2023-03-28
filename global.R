@@ -32,22 +32,22 @@ str(my_data)
 # Second menuItem visualization
 # Create Histogram and boxplot for distribution tabPanel
 
-# histogram
-p1 <- my_data %>%
-  plot_ly() %>%
-  add_histogram(~get(input$var1)) %>%
-  layout(xaxis = list(title=input$var1))
-
-# box plot
-p2 <- my_data %>%
-  plot_ly() %>%
-  add_boxplot(~get(input$var1)) %>%
-  layout(yaxis = list(showticklabels=F))
-
-#stack plots
-subplot(p2, p1, nrows =2, shareX = TRUE) %>% hide_legend() %>%
-  layout(title="Distribution chart - Histogram and Boxplot", 
-         yaxis = list(title="Frequency"))
+# # histogram
+# p1 <- my_data %>%
+#   plot_ly() %>%
+#   add_histogram(~get(input$var1)) %>%
+#   layout(xaxis = list(title=paste(input$var1)))
+# 
+# # box plot
+# p2 <- my_data %>%
+#   plot_ly() %>%
+#   add_boxplot(~get(input$var1)) %>%
+#   layout(yaxis = list(showticklabels=F))
+# 
+# #stack plots
+# subplot(p2, p1, nrows =2, shareX = TRUE) %>% hide_legend() %>%
+#   layout(title="Distribution chart - Histogram and Boxplot", 
+#          yaxis = list(title="Frequency"))
 
 #Choices for selectInput - without States column
 c1 = my_data %>% select(-State) %>% names
