@@ -2,6 +2,8 @@
 
 library(tidyverse)
 library(plotly)
+library(ggplot2)
+library(ggtext)
 # USArrests dataset
 
 my_data <- USArrests
@@ -47,6 +49,16 @@ subplot(p2, p1, nrows =2, shareX = TRUE) %>% hide_legend() %>%
   layout(title="Distribution chart - Histogram and Boxplot", 
          yaxis = list(title="Frequency"))
 
-
 #Choices for selectInput - without States column
 c1 = my_data %>% select(-State) %>% names
+
+# Create scatter plot for relationship using ggplot
+
+my_data %>% ggplot(aes(x=Rape, y=Assault)) +
+  geom_point() +
+  geom_smooth(method = "lm")+
+  labs(title = "Relation between rape and assault arrests",
+       x="Rape",
+       y="Assault") +
+  theme( plot.title = element_textbox_simple(size=10, halign=0.5))
+
