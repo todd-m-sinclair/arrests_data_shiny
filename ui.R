@@ -32,7 +32,18 @@ dashboardPage(
       tabItem(tabName = "data",
               #tab box
               tabBox(id="t1", width=12,
-                     tabPanel("About", icon=icon("address-card"), h4("tab panel 1 placeholder")),
+                     tabPanel("About", icon=icon("address-card"), 
+                              fluidRow(
+                                column(width = 8, tags$img(src="www/media/crime.jpg", width =600 , height = 300),
+                                       tags$br() , 
+                                       tags$a("Photo by Campbell Jensen on Unsplash"), align = "center"),
+                                column(width = 4, tags$br() ,
+                                       tags$p("This data set comes along with base R and contains statistics, in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. Also, given is the percent of the population living in urban areas.")
+                                )
+                              )
+                              
+                              
+                     ), 
                      tabPanel("Data", icon=icon("address-card"), dataTableOutput("dataT")),
                      tabPanel("Structure", icon=icon("address-card"), verbatimTextOutput("structure")),
                      tabPanel("Summary Stats", icon=icon("address-card"), verbatimTextOutput("summary"))
