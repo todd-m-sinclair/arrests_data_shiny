@@ -3,6 +3,39 @@ library(DT)
 library(ggcorrplot)
 
 function(input, output, session){
+  
+  # Rendering the box header  
+  output$head1 <- renderText(
+    paste("5 states with high rate of", input$var2, "Arrests")
+  )
+  
+  # Rendering the box header 
+  output$head2 <- renderText(
+    paste("5 states with low rate of", input$var2, "Arrests")
+  )
+  
+  
+  # Rendering table with 5 states with high arrests for specific crime type
+  output$top5 <- renderTable({
+    
+    my_data %>% 
+      select(State, input$var2) %>% 
+      arrange(desc(get(input$var2))) %>% 
+      head(5)
+    
+  })
+  
+  # Rendering table with 5 states with low arrests for specific crime type
+  output$low5 <- renderTable({
+    
+    my_data %>% 
+      select(State, input$var2) %>% 
+      arrange(get(input$var2)) %>% 
+      head(5)
+    
+    
+  })
+  
   #Structure
   output$structure <-renderPrint(
     my_data %>% 
