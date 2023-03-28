@@ -120,4 +120,24 @@ function(input, output, session){
              yaxis = list(title = paste(input$var2, "Arrests per 100,000 residents") ))
   })
   
+  # Choropleth map
+  output$map_plot <- renderPlot({
+    new_join %>% 
+      ggplot(aes(x=long, y=lat,fill=get(input$crimetype) , group = group)) +
+      geom_polygon(color="black", size=0.4) +
+      scale_fill_gradient(low="#73A5C6", high="#001B3A", name = paste(input$crimetype, "Arrest rate")) +
+      theme_void() +
+      labs(title = paste("Choropleth map of", input$crimetype , " Arrests per 100,000 residents by state in 1973")) +
+      theme(
+        plot.title = element_textbox_simple(face="bold", 
+                                            size=18,
+                                            halign=0.5),
+        
+        legend.position = c(0.2, 0.1),
+        legend.direction = "horizontal"
+        
+      ) +
+      geom_text(aes(x=x, y=y, label=abb), size = 4, color="white")
+  })
+  
 }
