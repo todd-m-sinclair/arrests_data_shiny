@@ -33,13 +33,13 @@ str(my_data)
 # histogram
 p1 <- my_data %>%
   plot_ly() %>%
-  add_histogram(~Rape) %>%
-  layout(xaxis = list(title="Rape"))
+  add_histogram(~get(input$var1)) %>%
+  layout(xaxis = list(title=input$var1))
 
 # box plot
 p2 <- my_data %>%
   plot_ly() %>%
-  add_boxplot(~Rape) %>%
+  add_boxplot(~get(input$var1)) %>%
   layout(yaxis = list(showticklabels=F))
 
 #stack plots
